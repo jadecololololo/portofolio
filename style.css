@@ -1,0 +1,33 @@
+.bingkai-blob {
+    width: 220px;
+    height: 220px;
+    overflow: hidden;
+    border-radius: inherit;
+    background: var(--secondary);
+    overflow: hidden;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bingkai-blob img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: inherit;
+    display: block;
+}
+
+.bagian-tersembunyi {
+  display: none; /* Wajib: bikin tidak muncul saat di-scroll biasa */
+  margin-top: 24px;
+  padding: 20px;
+}
+
+.tombol-buka {
+  cursor: pointer; /* Biar kursor jadi bentuk tangan saat diarahkan */
+  padding: 20px;
+  border-radius: 12px;
+}

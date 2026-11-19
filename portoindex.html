@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nichole Kurniawan Nyoo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;1,400&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<style>
+:root{
+  --utama:#790D16;      /* warna utama */
+  --secondary:#F3E6D5;  /* warna kedua */
+  --ketiga:#FFF9F2;     /* warna ketiga */
+  --last:#2D0000;       /* warna terakhir */
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'Nunito',sans-serif;color:var(--last);background:var(--ketiga);line-height:1.7}
+h1,h2,h3{font-family:'Fraunces',serif}
+section{position:relative;overflow:hidden}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+.judul{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:40px;text-align:center}
+
+/* ---------- NAVIGATION ---------- */
+nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:var(--last);
+  display:flex;justify-content:center;gap:6px;padding:12px 10px;box-shadow:0 4px 18px rgba(0,0,0,.35)}
+nav a{color:var(--secondary);text-decoration:none;font-weight:700;padding:6px 18px;border-radius:30px;
+  transition:background .3s,color .3s;font-size:.95rem}
+nav a:hover,nav a.aktif{background:var(--utama);color:var(--ketiga)}
+
+/* ---------- HOME / CAROUSEL ---------- */
+#home{height:100vh;min-height:520px;background:var(--utama);display:flex;align-items:center;justify-content:center}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:.35;
+  transform:translateX(100%);transition:transform 1s ease}
+.slide.sekarang{transform:translateX(0)}
+.slide.keluar{transform:translateX(-100%)}
+/* warna cadangan kalau foto belum ada */
+.slide:nth-child(1){background-color:#9a2a33}
+.slide:nth-child(2){background-color:#5a0710}
+.slide:nth-child(3){background-color:#b04a4f}
+.slide:nth-child(4){background-color:#3d0508}
+.hero-teks{position:relative;z-index:2;text-align:center;padding:0 24px}
+.hero-teks h1{color:var(--secondary);font-size:clamp(2.4rem,7vw,5.5rem);line-height:1.15;text-shadow:0 3px 18px rgba(45,0,0,.6);
+  animation:masuk 1.2s ease both}
+.hero-teks p{color:var(--secondary);margin-top:18px;font-size:1.15rem;opacity:.9;animation:masuk 1.2s .4s ease both}
+@keyframes masuk{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.titik{position:absolute;bottom:28px;left:0;width:100%;display:flex;justify-content:center;gap:10px;z-index:2}
+.titik span{width:11px;height:11px;border-radius:50%;background:var(--secondary);opacity:.4;cursor:pointer;transition:.3s}
+.titik span.sekarang{opacity:1;transform:scale(1.35)}
+
+/* ---------- BIODATA ---------- */
+#biodata{background:var(--ketiga);padding:110px 0}
+#biodata .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+#biodata h2{color:var(--utama);font-size:clamp(2rem,5vw,3.2rem);margin-bottom:22px}
+#biodata p{margin-bottom:16px;max-width:60ch}
+.blob-bingkai{width:min(100%,420px);aspect-ratio:1;margin:auto;background:var(--utama);padding:10px;
+  border-radius:62% 38% 46% 54% / 55% 45% 55% 45%;animation:morph 9s ease-in-out infinite;
+  box-shadow:14px 14px 0 var(--secondary)}
+.blob-isi{width:100%;height:100%;border-radius:inherit;background:var(--secondary) center/cover no-repeat;
+  display:flex;align-items:center;justify-content:center;text-align:center;color:var(--utama);font-weight:700;padding:20px}
+@keyframes morph{
+  0%,100%{border-radius:62% 38% 46% 54% / 55% 45% 55% 45%}
+  50%{border-radius:40% 60% 58% 42% / 42% 58% 42% 58%}}
+
+/* ---------- EDUCATION ---------- */
+#education{background:var(--last);padding:110px 0}
+#education .judul{color:var(--secondary)}
+.kotak-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.kotak{background:var(--ketiga);color:var(--utama);border-radius:18px;padding:70px 20px;text-align:center;
+  font-family:'Fraunces',serif;font-size:2rem;font-weight:700;cursor:pointer;
+  transition:transform .35s cubic-bezier(.3,1.5,.5,1),box-shadow .35s}
+.kotak:hover{transform:scale(1.15);box-shadow:0 18px 40px rgba(121,13,22,.7);z-index:2;position:relative}
+
+/* ---------- ACHIEVEMENTS ---------- */
+#achievements{background:var(--secondary);padding:110px 0}
+#achievements .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center}
+#achievements h2{color:var(--utama);font-size:clamp(2rem,5vw,3.2rem);margin-bottom:24px}
+.bingkai-foto{aspect-ratio:4/5;background:var(--ketiga) center/cover no-repeat;border:8px solid var(--utama);
+  border-radius:14px 120px 14px 120px;display:flex;align-items:center;justify-content:center;text-align:center;
+  color:var(--utama);font-weight:700;padding:20px;box-shadow:-14px 14px 0 rgba(121,13,22,.2)}
+.poin{list-style:none}
+.poin li{color:var(--utama);font-weight:600;font-size:1.15rem;padding:14px 0 14px 46px;position:relative;
+  border-bottom:2px dashed rgba(121,13,22,.3)}
+.poin li::before{content:"★";position:absolute;left:6px;top:13px;font-size:1.3rem}
+
+/* ---------- CONTACT ---------- */
+#contact{background:var(--utama);padding:110px 0}
+#contact .judul{color:var(--secondary)}
+.kontak-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;text-align:center}
+.kontak a{text-decoration:none;display:block}
+.logo{width:110px;height:110px;border-radius:50%;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;
+  transition:transform .35s,box-shadow .35s;box-shadow:0 8px 22px rgba(45,0,0,.4)}
+.logo svg{width:54px;height:54px;fill:none;stroke:var(--last);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.kontak a:hover .logo{transform:translateY(-10px) rotate(-6deg);box-shadow:0 18px 30px rgba(45,0,0,.6)}
+.kontak p{color:var(--secondary);font-weight:600}
+.wa{background:#B9D175}.gm{background:#FFF2A7}.kk{background:#930031}.ig{background:#AEC4D4}
+.kk svg{stroke:var(--secondary)}
+
+footer{background:var(--last);color:var(--secondary);text-align:center;padding:22px;font-size:.9rem}
+
+/* ---------- ANIMASI MUNCUL SAAT SCROLL ---------- */
+.muncul{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+.muncul.tampil{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:850px){
+  #biodata .wrap,#achievements .wrap{grid-template-columns:1fr;gap:40px}
+  .kotak-grid,.kontak-grid{grid-template-columns:repeat(2,1fr)}
+  nav a{padding:6px 11px;font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.muncul{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="aktif">Home</a>
+  <a href="#biodata">Biodata</a>
+  <a href="#education">Education</a>
+  <a href="#achievements">Achievements</a>
+  <a href="#contact">Contact Info</a>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+  <div class="slides" id="slides">
+    <!-- GANTI alamat foto di bawah ini dengan fotomu (taruh di folder "foto" sebelah index.html) -->
+    <div class="slide" style="background-image:url('flower1.jpeg')"></div>
+    <div class="slide" style="background-image:url('flower2.jpeg')"></div>
+    <div class="slide" style="background-image:url('flower3.jpeg')"></div>
+    <div class="slide" style="background-image:url('flower4.jpeg')"></div>
+  </div>
+  <div class="hero-teks">
+    <h1>Hai! Aku<br>Nichole Kurniawan Nyoo!</h1>
+    <p>Kenalan Yuksss</p>
+  </div>
+  <div class="titik" id="titik"></div>
+</section>
+
+<!-- BIODATA -->
+<section id="biodata">
+  <div class="wrap">
+    <div class="muncul">
+      <h2>Biodata</h2>
+      <p>Nama : Nichole Kurniawan Nyoo</p>
+      <p>Nama Panggilan : Nichole</p>
+      <p>Tempat, Tanggal Lahir : Malang, 15 Mei 2011</p>
+      <p>Hobi : Nonton film</p>
+      <p>Cita-cita : anak Tuhan</p>
+    </div>
+    <div class="blob-bingkai muncul">
+      <div class="blob-isi" id="fotoProfil" style="background-image: url('foto_nic.jpeg');"></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <h2 class="judul muncul">Education</h2>
+    <div class="kotak-grid muncul">
+      <div class="kotak">SD</div>
+      <div class="kotak">SMP</div>
+      <div class="kotak">SMA</div>
+      <div class="kotak">College</div>
+    </div>
+  </div>
+</section>
+
+<!-- SD -->
+<section id="SD" class="bagian-tersembunyi">
+  <div class="header-SD">
+    <h2>SD</h2>
+    <button type="button" onclick="tutupSD()">tutup</button>
+  </div>
+</section>
+
+<script>
+  function bukaSD() {
+    const SD = document.getElementById("gallery");
+    gallery.style.display = "block";
+    gallery.scrollIntoView({ behaviour: "smooth"})
+  }
+
+  function tutupSD() {
+    document.getElementById("SD").style.display = "none";
+  }
+</script>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="wrap">
+    <div class="bingkai-foto muncul" id="fotoAchv" style="background-image: url('foto_prestasi.jpeg');">Fotomu di sini</div>
+    <div class="muncul">
+      <h2>Achievements</h2>
+      <ul class="poin">
+        <li>Keorganisasian : NCO</li>
+        <li>Peserta KSR Matematika 2026 (2027 nanti juara AMENN)</li>
+        <li>in progress</li>
+        <li>in progress</li>
+        <li>in progress</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <h2 class="judul muncul">Contact Info</h2>
+    <div class="kontak-grid muncul">
+
+      <div class="kontak">
+        <!-- GANTI href dengan https://wa.me/628xxxxxxxxxx -->
+        <a href="https://wa.me/6282331945439" target="_blank" rel="noopener">
+          <div class="logo wa"><svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.8A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .7c-.8-.4-1.5-1.1-1.9-1.9l.7-1-1-2z"/></svg></div>
+          <p>bla bla bla</p>
+        </a>
+      </div>
+
+      <div class="kontak">
+        <!-- GANTI href dengan mailto:emailkamu@gmail.com -->
+        <a href="mailto:jadecol3.1499@gmail.com" target="_blank" rel="noopener">
+          <div class="logo gm"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 7 9-7"/></svg></div>
+          <p>bla bla bla</p>
+        </a>
+      </div>
+
+      <div class="kontak">
+        <a href="https://skkkmalang.sch.id/" target="_blank" rel="noopener">
+          <!-- Bisa diganti logo asli: <img src="foto/kalam-kudus.png"> -->
+          <div class="logo kk"><svg viewBox="0 0 24 24"><path d="M12 3v9M8.5 6.5h7"/><path d="M3 14c3-1.5 6-1.5 9 0 3-1.5 6-1.5 9 0v6c-3-1.5-6-1.5-9 0-3-1.5-6-1.5-9 0z"/></svg></div>
+          <p>Kalam Kudus</p>
+        </a>
+      </div>
+
+      <div class="kontak">
+        <!-- GANTI href dengan https://instagram.com/usernamekamu -->
+        <a href="https://instagram.com/jade_colexyz" target="_blank" rel="noopener">
+          <div class="logo ig"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6"/></svg></div>
+          <p>bla bla bla</p>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Nichole Kurniawan Nyoo</footer>
+
+<script>
+/* ---- Carousel: ganti foto tiap 5 detik ---- */
+const slides=[...document.querySelectorAll('.slide')];
+const titikBox=document.getElementById('titik');
+let i=0,timer;
+slides.forEach((_,n)=>{const d=document.createElement('span');d.onclick=()=>{pindah(n);ulang()};titikBox.appendChild(d)});
+const titik=[...titikBox.children];
+function pindah(n){
+  const lama=slides[i];
+  lama.classList.remove('sekarang');lama.classList.add('keluar');
+  setTimeout(()=>{lama.classList.remove('keluar')},1000);
+  i=n;
+  slides[i].style.transition='none';
+  slides[i].classList.remove('keluar');
+  void slides[i].offsetWidth;
+  slides[i].style.transition='';
+  slides[i].classList.add('sekarang');
+  titik.forEach((t,k)=>t.classList.toggle('sekarang',k===i));
+}
+function ulang(){clearInterval(timer);timer=setInterval(()=>pindah((i+1)%slides.length),5000)}
+slides[0].classList.add('sekarang');titik[0].classList.add('sekarang');ulang();
+
+/* ---- Menu aktif saat scroll ---- */
+const links=[...document.querySelectorAll('nav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+addEventListener('scroll',()=>{
+  const y=scrollY+120;let aktif=0;
+  secs.forEach((s,n)=>{if(s.offsetTop<=y)aktif=n});
+  links.forEach((a,n)=>a.classList.toggle('aktif',n===aktif));
+});
+
+/* ---- Muncul pelan-pelan saat di-scroll ---- */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('tampil');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.muncul').forEach(el=>io.observe(el));
+
+/* ---- Pasang foto sendiri (hapus tanda // lalu isi alamat fotonya) ----
+// document.getElementById('fotoProfil').style.backgroundImage="url('foto/profil.jpg')";
+// document.getElementById('fotoProfil').textContent='';
+// document.getElementById('fotoAchv').style.backgroundImage="url('foto/achievement.jpg')";
+// document.getElementById('fotoAchv').textContent='';
+*/
+</script>
+</body>
+</html>
